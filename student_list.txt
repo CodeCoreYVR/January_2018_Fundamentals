@@ -1,0 +1,3 @@
+Andy, Brian, Cedric, Doreen, Hercilia, Jennie, Jocelyn, Joel, Lana, Kathrinza, Pablo, Taylor, Youssef
+
+students = ["Andy", "Brian", "Cedric", "Doreen", "Hercilia", "Jennie", "Jocelyn", "Joel", "Kathrinza", "Lana", "Pablo", "Taylor", "Youssef"]
