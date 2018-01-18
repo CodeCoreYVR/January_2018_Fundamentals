@@ -1,0 +1,34 @@
+/* css rules */
+h1 {
+  /* property: value */
+  color: orange;
+  background-color: blue;
+  /* RGB: red, green, blue */
+  color: rgb(255, 255, 255);/* white */
+  color: rgb(0, 0, 0);/* white */
+  color: rgb(100, 25, 0);/* ??? */
+  background-color: rgba(255, 0, 0, 0.5); /* alpha == transparency between 0 and 1 */
+  /* hexadecimal */
+  /* 0 to 255 */
+  /* 00 to FF */
+  color: #FF0000;
+  /* color: red;
+  color: rgb(255, 0, 0); */
+  color: #CCCCCC; /* grey */
+  color: grey; /* grey */
+  color: rgb(204, 204, 204); /* grey */
+  color: #CCC;
+  color: #FFFFFF;
+  color: #FFF;
+  color: #000000;
+  color: #000;
+
+  /* why RGB??? */
+  /* eyes: have rods and cones */
+
+}
+p {
+  color: blue;
+  background-color: orange;
+
+}

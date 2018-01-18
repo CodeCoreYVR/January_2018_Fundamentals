@@ -1,0 +1,83 @@
+/* css rules */
+body {
+  background-image: url( dust_scratches.png );
+}
+h1 {
+  /* property: value */
+  color: orange;
+  background-color: blue;
+  /* RGB: red, green, blue */
+  color: rgb(255, 255, 255);/* white */
+  color: rgb(0, 0, 0);/* white */
+  color: rgb(100, 25, 0);/* ??? */
+  background-color: rgba(255, 0, 0, 0.5); /* alpha == transparency between 0 and 1 */
+  /* hexadecimal */
+  /* 0 to 255 */
+  /* 00 to FF */
+  color: #FF0000;
+  /* color: red;
+  color: rgb(255, 0, 0); */
+  color: #CCCCCC; /* grey */
+  color: grey; /* grey */
+  color: rgb(204, 204, 204); /* grey */
+  color: #CCC;
+  color: #FFFFFF;
+  color: #FFF;
+  color: #000000;
+  color: #FFF;
+  font-family: "Orbitron", "Impact", serif;
+  font-size: 50px;
+  font-weight: 100;
+  font-style: italic;
+  /* unit of measurement */
+  /* pixels: 50px */
+  /* pt: 50pt */
+  /* em: emphrical unit, relative unit of measurement */
+
+  /*  cmd+ctrl+shift+4 */
+  /* why RGB??? */
+  /* eyes: have rods and cones */
+  background-image: url( starry_night.jpg );
+  background-size: cover;
+}
+p {
+  color: blue;
+  background-color: orange;
+  font-family: fantasy;
+  background-image: url( dust_scratches.png );
+  border: thin red solid;
+}
+
+img {
+  /* width: 100%; */
+  /* width: 100vw; */ /* relative unit of measurement */
+  /* vw: viewport width */
+
+  /* height: 500px; */
+
+  /* max-width: 500px;
+  max-height: 300px; */
+  max-height: 200px;
+
+  margin: 10px;
+}
+
+h2 {
+  margin: 50px;
+  padding: 10px;
+  margin: 10px;
+  padding: 10px;
+  margin: 10px;
+  padding: 20px;
+  margin: 100px;
+  padding: 30px;
+}
+
+
+
+
+
+
+
+
+/*  */

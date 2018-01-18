@@ -1,0 +1,13 @@
+body{
+  background-image: url(background.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  margin: 0px;
+}
+
+h1 {
+   background-color: rgba(255, 0, 0, 0.5);
+   color: rgb(270,0,0);
+   margin: 0px;
+   padding: 10px;
+}
