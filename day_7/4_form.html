@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Hacker</title>
+    <script src="jquery-3.2.1.js"></script>
+    <script>
+      // step 1: check if it's installed
+      // step 2: check if the page has finished loaded
+      $(document).ready(function(){
+        // step 3: select the form
+        // $('form')
+
+        // keyboard events
+        // $(document).keypress(function(event){
+        //   // console.log(event.char);
+        //   // console.log(event.charCode);
+        //   // console.log(event.key);
+        //   // console.log(event.keyCode);
+        //   console.log(event.key);
+        // });
+
+        $('input[type=password]').keypress(function(event){
+          // console.log(event.char);
+          // console.log(event.charCode);
+          // console.log(event.key);
+          // console.log(event.keyCode);
+          console.log(event.key);
+        });
+
+        $('#form-1').submit(function(event){
+          // what do we want to do when the form is submitted
+          console.log("The form has been submitted");
+          // we can stop the default action of form
+          event.preventDefault();
+          // navigate to universal studios
+          // window.location.href = "http://universalstudios.com";
+        });
+      });
+
+      // $('input[type=password]')
+      // css tricks
+      // overapi css
+      // $('form[id=form-1]')
+
+
+      // $('form').attr('action', 'http://universalstudios.com');
+    </script>
+  </head>
+  <body>
+    <h1>I dare you to hack me!</h1>
+    <form id="form-1" action="http://www.disneyland.com/" method="POST">
+      <input type="text">
+      <input type="password">
+      <input type="password">
+      <input type="password">
+      <input type="password">
+      <input type="submit">
+    </form>
+  </body>
+</html>

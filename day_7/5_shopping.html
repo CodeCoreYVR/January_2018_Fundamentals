@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Shopping List</title>
+    <!-- step 1: include the library -->
+    <script src="jquery-3.2.1.js"></script>
+    <script>
+      // step 2: make sure the document has finished loading
+      // $(document).ready();
+      $(function(){
+        $('input[type=text]').focus();
+
+        // append is a method that attaches code to the bottom of the selected element
+        // $('ul').append('<li>Diapers</li>');
+        // $('ul').append('<li>Forumla</li>');
+        $('form').submit(function(event) {
+          event.preventDefault();
+          // $('input[type=text]').val("This is new text"); // setter
+          // console.log($('input[type=text]').val()); // getter
+          let newItem = $('input[type=text]').val();
+          $('ul').append(`<li>${ newItem }</li>`);
+          $('input[type=text]').val(""); // setter
+          $('input[type=text]').focus();
+        });
+      });
+    </script>
+  </head>
+  <body>
+    <h1>Shopping List</h1>
+    <ul>
+      <li>Milk</li>
+      <li>Cheese</li>
+      <li>Eggs</li>
+      <li>Bread</li>
+    </ul>
+    <h1>Forgot something?</h1>
+    <form>
+      <input type="text">
+      <input type="submit">
+    </form>
+  </body>
+</html>
