@@ -7,7 +7,7 @@
 function frequencyOfLetters(sentence) {
   let result = {}
 
-  for(let letter of letters) {
+  for(let letter of sentence) {
     if(result[letter]) {
       result[letter] ++
     } else if (letter != ' ') {
