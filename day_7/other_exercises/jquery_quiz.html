@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <style>
+      div {
+        margin-bottom: 10px;
+      }
+    </style>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script type="text/javascript" src="./jquery_quiz.js"></script>
+    <title></title>
+  </head>
+  <body>
+    <form id="quiz">
+      <div>
+        <label>How many sides does a hexagon have?</label>
+        <div>
+          <input type="radio" name="hexagon" value='wrong'> <label>five</label>
+          <input type="radio" name="hexagon" value=true> <label>six</label>
+          <input type="radio" name="hexagon" value='wrong'> <label>seven</label>
+        </div>
+      </div>
+      <div>
+        <label>How many wheels does a car have?</label>
+        <div>
+          <input type="radio" name="car" value='correct'> <label>four</label>
+          <input type="radio" name="car" value='wrong'> <label>two</label>
+          <input type="radio" name="car" value='wrong'> <label>three</label>
+        </div>
+      </div>
+
+      <div>
+        <label>What colour is the sky?</label>
+        <div>
+          <input type="radio" name="sky" value='wrong'> <label>green</label>
+          <input type="radio" name="sky" value='wrong'> <label>none</label>
+          <input type="radio" name="sky" value='correct'> <label>blue</label>
+        </div>
+      </div>
+      <input type="submit">
+    </form>
+    <div id="results"></div>
+  </body>
+</html>

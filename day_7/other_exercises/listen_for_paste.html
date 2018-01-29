@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Paste</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script type="text/javascript">
+      // Plain Old JavaScript Way
+      document.addEventListener("DOMContentLoaded", function() {
+        document.addEventListener("paste", function(event) {
+          let pastedData = event.clipboardData.getData('text')
+          alert(`This is what you just pasted...  ${pastedData}`)
+        })
+      })
+
+      // jQuery Way
+      // $(document).bind("paste", function(event){
+      //   let pastedData = event.originalEvent.clipboardData.getData('text');
+      //   alert(`This is what you just pasted...  ${pastedData}`)
+      // });
+
+      // Note there are other events you can listen for read more here...
+      // https://developer.mozilla.org/en-US/docs/Web/Events
+    </script>
+  </head>
+  <body>
+    <div>
+      <form id="formy_form">
+        <input type="text" name="list" id="inputty_put" />
+        <button>Submit</button>
+      </form>
+    </div>
+  </body>
+</html>
