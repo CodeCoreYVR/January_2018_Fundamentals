@@ -1,0 +1,47 @@
+<!-- Form Exercise -->
+<!-- Name Collector -->
+<!-- Build a basic HTML File -->
+<!-- 1. Add a form with one input field -->
+<!-- 2. Add a simple table with a column heading table, tr, th, td -->
+<!-- 3. The table might look a bit weird, add some css to it, just do a style tag -->
+<!-- 4. Load jQuery into the page with a script tag, src with a file or url -->
+<!-- 5. Create a javascript file and load it into the html -->
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <style>
+      table, tr, th, td {
+        border: 1px solid black;
+      }
+    </style>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script type="text/javascript" src="./form_exercise.js"></script>
+    <title></title>
+  </head>
+  <body>
+    <form id="my-form">
+      <!-- we can select this input by the id or name attribute -->
+      <!-- either way works the same -->
+      <!-- $("input#brians_input") -->
+      <!-- $("input[name='brian']") -->
+      <input type="text" name="brian" id='brians_input'>
+      <!-- The reason why I named this input brian is to avoid confusion -->
+      <!-- Since we are entering in a name into the input, it should have the name="name" id="name_input"-->
+      <!-- EXAMPLE... <input type="text" name="anme" id='name_input'> -->
+      <!-- we can select it like so... -->
+      <!-- $("input#name_input") -->
+      <!-- $("input[name='name']") -->
+      <input type="submit">
+    </form>
+    <table id="my-table">
+      <tr>
+        <th>Name</th>
+      </tr>
+      <tr>
+        <td>Cedric</td>
+      </tr>
+    </table>
+  </body>
+</html>
