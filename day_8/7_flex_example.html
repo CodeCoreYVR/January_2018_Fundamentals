@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Flex!!!</title>
+    <!-- <script src="jquery-3.2.1.js"></script> -->
+    <style>
+      .container {
+        padding: 10px;
+        background-color: teal;
+        border: thick solid black;
+        border-radius: 5px;
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        flex-direction: row-reverse;
+        height: 500px;
+      }
+      .item {
+        width: 100px;
+        height: 100px;
+        background-color: firebrick;
+        border-radius: 5px;
+        margin: 10px;
+        /* float: left; */
+        /* display: inline-block; */
+        color: white;
+        font-size: 20px;
+        font-weight: bold;
+        flex-shrink: 0;
+      }
+      /* does not require jquery */
+      .item:nth-child(4) {
+        background-color: gold;
+      }
+      #item1 {
+        align-self: flex-end;
+      }
+      #item3 {
+        align-self: flex-start;
+      }
+      #item5 {
+        align-self: flex-end;
+        order: 1;
+      }
+      #item6 {
+        order: 0;
+        background-color: pink;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div id="item1" class="item">1</div>
+      <div class="item">2</div>
+      <div id="item3" class="item">3</div>
+      <div class="item">4</div>
+      <div id="item5" class="item">5</div>
+      <div id="item6" class="item">6</div>
+    </div>
+  </body>
+</html>

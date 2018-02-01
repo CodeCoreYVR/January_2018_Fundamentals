@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Menu</title>
+    <style>
+      /* @ */
+      /* @import "style2.css"; */
+      /* @font-face - google fonts */
+      /* media query */
+      /* // Extra small devices (portrait phones, less than 576px) */
+      /* // No media query since this is the default in Bootstrap */
+
+      /* // Small devices (landscape phones, 576px and up) */
+      @media (min-width: 0) { body { background-color: blue } }
+
+      @media (min-width: 576px) { body { background-color: red } }
+
+      /* // Medium devices (tablets, 768px and up) */
+      @media (min-width: 768px) { body { background-color: orange } }
+
+      /* // Large devices (desktops, 992px and up) */
+      @media (min-width: 992px) { body { background-color: yellow } }
+
+      /* // Extra large devices (large desktops, 1200px and up) */
+      @media (min-width: 1200px) { body { background-color: green } }
+
+      .vg {
+        border: thin red solid;
+      }
+      ul {
+        display: flex;
+        list-style: none;
+      }
+      li {
+        padding: 20px;
+      }
+      a {
+        text-decoration: none;
+        color: grey;
+        font-family: Helvetica;
+      }
+      a:hover {
+        text-decoration: underline;
+        font-weight: bold;
+      }
+    </style>
+  </head>
+  <body>
+    <ul>
+      <li><a href="#">Home</a></li>
+      <li><a href="#">About</a></li>
+      <li><a href="#">Portfolio</a></li>
+      <li><a href="#">Gallery</a></li>
+      <li><a href="#">Newsletter</a></li>
+      <li><a href="#">Donation</a></li>
+      <li><a href="#">Contact</a></li>
+    </ul>
+  </body>
+</html>

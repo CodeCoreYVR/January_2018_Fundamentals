@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Challenge: Position planet</title>
+        <style>
+            /* * {
+              position: absolute;
+            } */
+            #greeting {
+              background: rgb(255, 255, 0);
+              border: 2px solid black;
+              font-family: "Comic Sans MS", fantasy;
+              padding: 5px;
+              width: 262px;
+              position: absolute;
+              /* top left bottom right */
+              top: 320px;
+              left: 120px;
+              z-index: 3;
+
+            }
+            .planet {
+              position: absolute;
+              top: 100px;
+              left: 50px;
+              z-index: 2;
+            }
+            .alien {
+              position: absolute;
+              top: 50px;
+              left: 50px;
+              z-index: 1;
+            }
+        </style>
+    </head>
+    <body>
+        <img class="space" src="images/space.jpg">
+        <img class="planet" src="images/planet.png" width="300">
+
+        <div id="greeting">
+            <p>Hello! Welcome to position planet!</p>
+        </div>
+
+        <img class="alien" src="images/mr-pink.png">
+    </body>
+</html>
+
+<!-- source: khan academy -->
