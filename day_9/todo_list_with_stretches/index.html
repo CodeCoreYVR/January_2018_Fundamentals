@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Firebase Todo List</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/4.9.1/firebase.js"></script>
+    <script>
+      // Add the Firebase configuration code here
+      var config = {
+      };
+
+      // Initialize Firebase
+      firebase.initializeApp(config);
+
+      // Connect to the todos object in your Firebase Project
+      var todoList = firebase.database().ref('todos/');
+
+      // Retrieve all the todos from Firebase and add them to the website
+      todoList.on('child_added', function(data) {
+        renderTodo(data)
+      })
+
+      // When a todo has been updated we render all the todos again.
+      todoList.on('child_changed', function(data) {
+        renderTodo(data)
+      });
+
+      // Frontend: Eventhough this is a Firebase function, all we are doing here
+      // is removing the todo task from the webpage. The todo has already been
+      // removed from the database.
+      todoList.on('child_removed', function(data) {
+        const todoId = data.key;
+
+        $(`#${todoId}`).remove()
+      });
+
+      // Since child_changed and child_added essentially operate the same (they
+      // just have different events). We removed the duplication of code and
+      // write a function that encapsulates all of that behaviour
+      const renderTodo = function(data) {
+        const todoId = data.key;
+        const todo = data.val();
+
+        // Note the three distince ids here.
+        // 1. the div that contains the todo
+        // 2. the delete button
+        // 3. the toggle completed button
+        // ALSO!!! All the CSS classes you see are from Bootstrap, I did not
+        // write any CSS styling for this project
+        if(todo.completed) {
+          $('#complete-tasks').prepend(`
+            <div id='${todoId}' class='card mb-2'>
+              <div class='card-body'>
+                ${todo.task}
+                <span class='float-right'>
+                  <button id='toggle_${todoId}' class='btn btn-success' data-completed='${todo.completed}'>Completed</button>
+                  <button id='delete_${todoId}' class='btn btn-outline-danger' data-completed='${todo.completed}'>Delete</button>
+                </span>
+              </div>
+            </div>
+          `);
+        } else {
+          $('#incomplete-tasks').prepend(`
+            <div id='${todoId}' class='card mb-2'>
+              <div class='card-body'>
+                ${todo.task}
+                <span class='float-right'>
+                  <button id='toggle_${todoId}' class='btn btn-danger' data-completed='${todo.completed}'>Not Completed</button>
+                  <button id='delete_${todoId}' class='btn btn-outline-danger' data-completed='${todo.completed}'>Delete</button>
+                </span>
+              </div>
+            </div>
+          `);
+        }
+
+        $(`#delete_${todoId}`).click(function(event){
+          event.preventDefault();
+          // Backend: this deletes the todo task from Firebase
+          // The id is coming from above code const id = data.key;
+          // since we are in the same function, we have access to id
+          todoList.child(todoId).remove();
+
+          // This line is equivalent to the line above
+          // firebase.database().ref(`todos/${todoId}`).remove();
+        });
+
+        $(`#toggle_${todoId}`).click(function() {
+          // Frontend: Removes div containing the todo from the screen
+          $(`#${todoId}`).remove()
+
+          // Backend: Updates the completed value of the individual todo task
+          // the code !todo.completed just inverse the boolean, so true becomes
+          // false and false becomes true.
+          todoList.child(todoId).update({ 'completed': !todo.completed })
+
+          // This line is equivalent to the line above
+          // firebase.database().ref().child('todos').child(todoId).update({ 'completed': !todo.completed })
+        });
+      }
+
+      $(document).ready(function() {
+        // Capture the data when the form submits
+        $('form#task-form').submit(function(event){
+          event.preventDefault();
+
+          // Get the value from the form input
+          const task = $('#body').val()
+
+          // We have a validation check here, if the we have no input, we
+          // alert the user to enter something.
+          if (task) {
+            // Backend: Creates the todo task on Firebase
+            todoList.push({ task: task, completed: false });
+
+            // clears the form input
+            $('#body').val('')
+          } else {
+            alert('Please enter a task to do.')
+          }
+        });
+      })
+    </script>
+  </head>
+  <body>
+    <div class="container">
+      <h1>Firebase Todo</h1>
+
+      <form id="task-form">
+        <div class="form-group">
+          <label for="name">Task</label>
+          <input type="text" id="body" class="form-control">
+        </div>
+        <input type="submit" value="Send Message" class="btn btn-primary">
+      </form>
+
+      <hr>
+
+      <div id="tasks">
+        <h2>Pending Tasks</h2>
+        <div id="incomplete-tasks">
+          <!-- We will be listing all of our incomplete todos in here -->
+        </div>
+
+        <h2>Complete Tasks</h2>
+        <div id="complete-tasks">
+          <!-- We will be listing all of our completed todos in here -->
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
