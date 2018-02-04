@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Awesome Messages</title>
+    <style>
+      .message {
+        margin-bottom: 10px;
+      }
+    </style>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+    <script src="https://www.gstatic.com/firebasejs/4.9.1/firebase.js"></script>
+    <script>
+      // Initialize Firebase
+      var config = {
+
+      };
+      firebase.initializeApp(config);
+
+      const messagesRef = firebase.database().ref('/messages');
+
+      // the first time you connect to Firebase, it will send you all the
+      // messages one at a time with `child_added`. After that, every time you
+      // insert something to `messages` it will trigger the `child_added` again
+      messagesRef.on('child_added', function(data) {
+        const messageId = data.key
+        const message = data.val()
+        console.log('------- CHILD ADDED -------');
+        console.log(messageId);
+        console.log(message);
+        console.log('-------');
+
+        $('#messages').prepend(`
+          <div class='card message' id='${messageId}'>
+            <div class='card-body'>
+              <h3>${message.name}</h3>
+              <p>${message.body}</p>
+              <a href='javascript:void(0)' class='btn btn-danger' id='del-${messageId}'>Delete</a>
+            </div>
+          </div>
+        `);
+
+        $(`#del-${messageId}`).click(function(event){
+          firebase.database().ref(`messages/${messageId}`).remove()
+        });
+      });
+
+      messagesRef.on('child_removed', function(data){
+        $(`#${data.key}`).remove();
+      });
+
+      messagesRef.on('child_changed', function(data){
+        const messageId = data.key;
+        const message = data.val();
+        console.log('------- CHILD CHANGED -------');
+        console.log(messageId);
+        console.log(message);
+        console.log('-------');
+      });
+
+      $(document).ready(function(){
+        $('#message-form').submit(function(event){
+          event.preventDefault();
+          // Firebase will automatically generate an id for every added child
+          // so no need to pass in an ID
+          messagesRef.push({ name: $('#name').val(), body: $('#body').val() });
+          $('#name').val('');
+          $('#body').val('');
+        });
+      });
+    </script>
+  </head>
+  <body>
+    <div class="container">
+      <h1>Awesome Messages</h1>
+      <form id="message-form">
+        <div class="form-group">
+          <label for="name">Name</label>
+          <input id='name' class='form-control'>
+        </div>
+        <div class="form-group">
+          <label for="body">Message</label>
+          <textarea id="body" class="form-control"></textarea>
+        </div>
+        <input type="submit" class="btn btn-primary">
+      </form>
+      <hr>
+      <div id="messages"></div>
+    </div>
+  </body>
+</html>
