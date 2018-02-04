@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Firebase Code Snippets</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+    <script src="https://www.gstatic.com/firebasejs/4.1.3/firebase.js"></script>
+    <script src="./firebase_init.js"></script>
+    <script>
+      const codeSnippets = firebase.database().ref('snippets');
+
+      codeSnippets.on('child_added', function(data) {
+        const id = data.key;
+        const snippet = data.val();
+
+        if (snippet.language == 'ruby') {
+          $('#snippets').append(`
+            <div class="row">
+              <div class="col-md-12">
+                <h3>${snippet.title}</h3>
+                <pre>${snippet.code}</pre>
+              </div>
+            </div>
+          `)
+        }
+      });
+    </script>
+  </head>
+  <body>
+    <div class="container">
+      <h1 class="text-center">Ruby Code Snippets</h1>
+      <hr>
+      <div id="snippets">
+
+      </div>
+    </div>
+  </body>
+</html>
