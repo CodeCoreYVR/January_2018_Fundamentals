@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Flexbox Pyramid</title>
+    <style media="screen">
+      .circle {
+        height: 100px;
+        width: 100px;
+        border-radius: 50%;
+        margin: 10px;
+        flex-shrink: 0;
+      }
+      .row {
+        display: flex;
+        justify-content: center;
+      }
+      .red {
+        background-color: red;
+      }
+      .orange {
+        background-color: orange;
+      }
+      .yellow {
+        background-color: yellow;
+      }
+      .green {
+        background-color: green;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="row">
+      <div class="circle red"></div>
+    </div>
+    <div class="row">
+      <div class="circle orange"></div>
+      <div class="circle orange"></div>
+    </div>
+    <div class="row">
+      <div class="circle yellow"></div>
+      <div class="circle yellow"></div>
+      <div class="circle yellow"></div>
+    </div>
+    <div class="row">
+      <div class="circle green"></div>
+      <div class="circle green"></div>
+      <div class="circle green"></div>
+      <div class="circle green"></div>
+    </div>
+
+  </body>
+</html>

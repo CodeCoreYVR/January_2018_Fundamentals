@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Gallery</title>
+    <!-- external boostrap css file -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+      .jumbotron {
+        background-image: url(light-veneer.png);
+      }
+      i {
+        color: red;
+      }
+    </style>
+    <!-- not native, belongs to bootstrap -->
+    <!-- $('button').attr('data-target') -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+      <a class="navbar-brand float-right" href="#">Jacob's Gallery</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <!-- ml-auto: margin-left auto -->
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item active">
+            <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Features</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Pricing</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link disabled" href="#">Secret Shop</a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+    <br>
+    <br>
+    <br>
+
+    <!-- jumbotron -->
+    <!-- <div class="container bg-secondary">
+      <h2>Jumbotron will go here!!!</h2>
+    </div> -->
+
+    <div class="jumbotron container-fluid">
+      <h1 class="display-3">Jacob's Gallery</h1>
+      <p class="lead">This is a simple hero unit, a simple jumbotron-style component for
+                      calling extra attention to featured content or information.</p>
+      <hr class="my-2">
+      <p>It uses utility classes for typography and
+         spacing to space content out within the larger container.</p>
+      <p class="lead">
+        <a class="btn btn-primary btn-lg" href="#!" role="button">Subscribe</a>
+      </p>
+    </div>
+
+    <div class="row">
+      <i class="fa fa-anchor col-sm-6 col-md-4 col-lg-3 fa-4x"></i>
+      <i class="fa fa-anchor col-sm-6 col-md-4 col-lg-3"></i>
+      <i class="fa fa-anchor col-sm-6 col-md-4 col-lg-3"></i>
+      <i class="fa fa-anchor col-sm-6 col-md-4 col-lg-3"></i>
+    </div>
+
+    <!-- forms -->
+    <div class="container">
+      <div class="row form-group">
+        <div class="col-sm-5">Contact Us....</div>
+        <div class="col-sm-7">
+          <form>
+            <div class="row">
+              <input type="text" class="form-control col-sm-6">
+              <input type="text" class="form-control col-sm-6">
+            </div>
+            <input type="submit" class="btn-primary form-control">
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <h1>Jacob's Art Gallery</h1>
+
+    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quas maiores, atque minus quod quos veniam! Voluptates ipsa expedita temporibus nobis illum ut. Eos eveniet voluptatem animi qui reiciendis repellendus in!</p>
+
+    <div class="row container">
+      <img src="https://imgix.ranker.com/user_node_img/112/2223028/original/the-starry-night-artwork-photo-u2?w=650&q=50&fm=jpg&fit=crop&crop=faces" class="img-thumbnail col-md-6 col-lg-4" />
+      <img src="https://st.hzcdn.com/simgs/9821d30108fa3f90_4-3488/contemporary-paintings.jpg" class="img-thumbnail col-md-6 col-lg-4" />
+      <img src="https://i.pinimg.com/736x/55/a0/b6/55a0b63c045810d056d15b5d5fc5863f--classic-movie-posters-classic-movies.jpg" class="img-thumbnail col-md-6 col-lg-4" />
+    </div>
+
+
+  </body>
+</html>
